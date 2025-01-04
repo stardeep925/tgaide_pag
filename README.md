@@ -361,3 +361,293 @@ GET http://<IP地址>:<端口号>/?key=<秘钥>&mode=1&id=<目标ID>&msg=<发送
 ---
 
 > 📌 **提示：** 使用过程中如有问题，欢迎在 Telegram 群组中交流讨论！
+
+## 📱 功能特性详解
+
+### 🔄 自动化处理
+- **消息自动翻译**
+  ```plaintext
+  # 全局翻译模式下：
+  1. 自动翻译所有发出的消息
+  2. 自动识别源语言
+  3. 支持多语言互译
+  ```
+- **在线状态维护**
+  ```plaintext
+  # 自动保持在线
+  1. 每55秒自动更新状态
+  2. 支持自定义在线/离线状态
+  3. 断线自动重连
+  ```
+- **自动更新系统**
+  ```plaintext
+  # 版本检查流程
+  1. 定期检查新版本
+  2. 自动下载更新文件
+  3. 智能安装部署
+  ```
+
+### 🎨 UI/UX 设计
+- **收款界面美化**
+  ```plaintext
+  特性：
+  - 渐变背景设计
+  - 自适应布局
+  - 高清二维码生成
+  - 自定义LOGO支持
+  ```
+- **动态时间显示**
+  ```plaintext
+  样式：
+  - emoji时钟显示
+  - 自定义状态文本
+  - 多种显示模式
+  ```
+- **消息样式**
+  ```plaintext
+  格式：
+  - HTML格式支持
+  - Markdown格式支持
+  - 自定义表情包
+  ```
+
+### 🔍 搜索与查询
+- **高级搜索功能**
+  ```plaintext
+  支持：
+  - 模糊搜索
+  - 正则匹配
+  - 多条件筛选
+  - 结果分页
+  ```
+- **用户信息查询**
+  ```plaintext
+  可查询：
+  - 基础信息
+  - DC信息
+  - 共同群组
+  - 在线状态
+  ```
+- **群组数据分析**
+  ```plaintext
+  统计：
+  - 成员活跃度
+  - 消息频率
+  - DC分布
+  - 管理员列表
+  ```
+
+### 🛡️ 安全防护
+- **API 安全**
+  ```plaintext
+  措施：
+  - 密钥验证
+  - 请求限流
+  - IP白名单
+  - 日志记录
+  ```
+- **权限管理**
+  ```plaintext
+  级别：
+  - 超级管理员
+  - 普通管理员
+  - 受信任用户
+  - 普通用户
+  ```
+- **数据保护**
+  ```plaintext
+  方式：
+  - 配置文件加密
+  - 敏感信息脱敏
+  - 定期数据备份
+  ```
+
+## 🔧 进阶配置
+
+### 📊 性能优化
+```json
+{
+    "performance": {
+        "max_concurrent_tasks": 10,
+        "message_cache_size": 1000,
+        "auto_clean_interval": 3600,
+        "api_timeout": 30
+    }
+}
+```
+
+### 🌐 网络设置
+```json
+{
+    "network": {
+        "proxy_enabled": false,
+        "proxy_type": "socks5",
+        "proxy_address": "127.0.0.1",
+        "proxy_port": 1080,
+        "api_retry_count": 3
+    }
+}
+```
+
+### 🔐 安全配置
+```json
+{
+    "security": {
+        "api_rate_limit": 100,
+        "allowed_ips": ["127.0.0.1"],
+        "admin_users": ["user_id_1", "user_id_2"],
+        "log_level": "INFO"
+    }
+}
+```
+
+## 📈 性能指标
+
+### 🚀 响应速度
+- 消息处理: < 100ms
+- API 响应: < 200ms
+- 搜索查询: < 500ms
+- 文件处理: < 1s
+
+### 💾 资源占用
+- CPU: 5-10%
+- 内存: 50-100MB
+- 存储: 10-50MB
+- 网络: 1-5MB/s
+
+### 🌐 并发处理
+- 最大并发请求: 100/s
+- 消息队列容量: 1000
+- 最大连接数: 500
+- 缓存容量: 10000条
+
+## 🔨 故障排除
+
+### 🚫 常见问题
+1. **API 连接失败**
+   ```plaintext
+   解决方案：
+   1. 检查网络连接
+   2. 验证API密钥
+   3. 确认服务器状态
+   ```
+
+2. **翻译功能异常**
+   ```plaintext
+   解决方案：
+   1. 检查语言代码
+   2. 验证API额度
+   3. 重置翻译设置
+   ```
+
+3. **内存占用过高**
+   ```plaintext
+   解决方案：
+   1. 清理消息缓存
+   2. 减少并发任务
+   3. 优化查询操作
+   ```
+
+### 🔍 诊断命令
+```plaintext
+,debug         # 查看系统状态
+,aideup        # 检查更新
+,http status   # 检查API状态
+```
+
+## 📚 开发文档
+
+### 🔌 API 开发
+```python
+# API 调用示例
+import requests
+
+def send_message(api_key, chat_id, message):
+    url = f"http://your-server:port/"
+    params = {
+        "key": api_key,
+        "mode": 1,
+        "id": chat_id,
+        "msg": message
+    }
+    response = requests.get(url, params=params)
+    return response.json()
+```
+
+### 🛠️ 插件开发
+```python
+# 插件模板
+@listener(command="custom_command")
+async def custom_function(message: Message):
+    """
+    自定义功能实现
+    """
+    try:
+        # 实现逻辑
+        pass
+    except Exception as e:
+        await message.edit(f"错误：{str(e)}")
+```
+
+### 📦 模块扩展
+```python
+# 扩展模块示例
+class CustomModule:
+    def __init__(self):
+        self.config = {}
+    
+    async def initialize(self):
+        # 初始化逻辑
+        pass
+    
+    async def process(self, data):
+        # 处理逻辑
+        pass
+```
+
+## 🎯 最佳实践
+
+### 💡 使用建议
+1. **配置优化**
+   - 根据服务器配置调整并发数
+   - 定期清理缓存数据
+   - 使用CDN加速API访问
+
+2. **安全防护**
+   - 定期更换API密钥
+   - 启用IP白名单
+   - 监控异常访问
+
+3. **性能调优**
+   - 使用连接池
+   - 实现请求缓存
+   - 优化查询语句
+
+### 🚀 部署建议
+1. **环境配置**
+   ```bash
+   # 推荐配置
+   Python 3.8+
+   RAM 2GB+
+   Storage 20GB+
+   Network 10Mbps+
+   ```
+
+2. **依赖管理**
+   ```bash
+   # 创建虚拟环境
+   python -m venv venv
+   source venv/bin/activate
+   
+   # 安装依赖
+   pip install -r requirements.txt
+   ```
+
+3. **监控配置**
+   ```bash
+   # 推荐监控指标
+   - CPU使用率
+   - 内存占用
+   - API响应时间
+   - 错误日志
+   ```
