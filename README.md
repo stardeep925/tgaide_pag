@@ -634,14 +634,13 @@ class CustomModule:
    ```
 
 2. **依赖管理**
-   ~~```bash
-   # 创建虚拟环境
-   python -m venv venv
-   source venv/bin/activate
-   
-   # 安装依赖
-   pip install -r requirements.txt
-   ```~~
+
+~~# 创建虚拟环境
+python -m venv venv
+source venv/bin/activate
+
+# 安装依赖
+pip install -r requirements.txt~~
 
 3. **监控配置**
    ```bash
