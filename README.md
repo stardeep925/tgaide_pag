@@ -633,7 +633,7 @@ class CustomModule:
    Network 10Mbps+
    ```
 
-2. **依赖管理**
+~~2. **依赖管理**
    ```bash
    # 创建虚拟环境
    python -m venv venv
@@ -642,7 +642,7 @@ class CustomModule:
    # 安装依赖
    pip install -r requirements.txt
    ```
-
+~~
 3. **监控配置**
    ```bash
    # 推荐监控指标
